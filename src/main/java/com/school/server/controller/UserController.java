@@ -1,6 +1,7 @@
 package com.school.server.controller;
 
 import com.school.pojo.dto.UserLoginDTO;
+import com.school.pojo.dto.UserRegisterDTO;
 import com.school.pojo.entity.User;
 import com.school.pojo.vo.UserLoginVO;
 import com.school.server.service.UserService;
@@ -66,6 +67,24 @@ public class UserController {
         BeanUtils.copyProperties(user,userLoginVO);
         userLoginVO.setToken(token);
 
+        return Result.success(userLoginVO);
+    }
+
+    @PostMapping("/register")
+    @Operation(summary = "用户注册接口")
+    public Result<UserLoginVO> register(@RequestBody UserRegisterDTO userRegisterDTO){
+        log.info("用户注册: {}",userRegisterDTO);
+        User user = userService.registerUser(userRegisterDTO);
+
+        //验证成功，生成token令牌
+        Map<String,Object> claims = new HashMap<>();
+        claims.put(JwtClaimsConstant.USER_ID,user.getId());
+        String token = JwtUtils.createJWT(jwtProperties.getUserSecretKey(), jwtProperties.getUserTtl(), claims);
+
+        //封装返回VO
+        UserLoginVO userLoginVO = new UserLoginVO();
+        BeanUtils.copyProperties(user,userLoginVO);
+        userLoginVO.setToken(token);
         return Result.success(userLoginVO);
     }
 }

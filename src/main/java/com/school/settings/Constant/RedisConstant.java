@@ -12,4 +12,7 @@ public class RedisConstant {
     //验证码有效时间的单位
     public static final TimeUnit CODE_TIME_LIMIT_TYPE = TimeUnit.MINUTES;
 
+    //验证码的key
+    public static final String CODE_KEY = "-code";
+
 }

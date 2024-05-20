@@ -7,4 +7,6 @@ public class MessageConstant {
     public static final String USER_NOT_LOGIN = "用户未登录";
     public static final String LOGIN_FAILED = "登录失败";
     public static final String PASSWORD_EDIT_FAILED = "密码修改失败";
+    public static final String CODE_EXPIRED_ERROR = "验证码已经过期，请重新获取";
+    public static final String CODE_ERROR = "验证码错误";
 }
