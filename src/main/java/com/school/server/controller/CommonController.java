@@ -28,7 +28,7 @@ public class CommonController {
     private RedisTemplate<String, Object> redisTemplate;
 
     @GetMapping("/code")
-    public Result<String> getCode(String email){
+    public Result getCode(String email){
         log.info("获取验证码: {}",email);
         //随机生成验证码
         Random random = new Random();
@@ -46,7 +46,7 @@ public class CommonController {
         //发送邮件
         sender.send(message);
 
-        return Result.success(String.valueOf(code));
+        return Result.success();
     }
 
 }
