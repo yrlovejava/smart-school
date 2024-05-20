@@ -1,0 +1,58 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true # 支持循环依赖
+  datasource:
+    driver-class-name: ${school.datasource.driver-class-name}
+    url: jdbc:mysql://${school.datasource.host}:${school.datasource.port}/${school.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${school.datasource.username}
+    password: ${school.datasource.password}
+  mail:
+    # 163邮箱的地址时stmp.163.com, 直接填写即可
+    host: smtp.163.com
+    # 你申请的163邮箱
+    username: 14780339727@163.com
+    # 注意密码是在开启smtp/pop3时自动生成的，必须保存
+    password: EDZMXQBOCGNGVJAT
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: '小袁'
+      paths-to-match: '/**'
+      #生成文档所需的扫包路径，一般为启动类目录
+      packages-to-scan: com.school
+
+mybatis:
+  #mapper配置文件(支持xml)
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.school.pojo.entity
+  configuration:
+    #开启驼峰命名法
+    use-actual-param-name: true
+
+logging:
+  level:
+    com:
+      school:
+        mapper: debug
+        service: info
+        controller: info
+
+school:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    user-secret-key: YuanRui
+    # 设置jwt过期时间(12小时)
+    user-ttl: 43200000
+    # 设置前端传递过来的令牌名称
+    user-token-name: token

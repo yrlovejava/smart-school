@@ -1,0 +1,8 @@
+school:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: smart-school
+    username: root
+    password: YuanRui20050614
