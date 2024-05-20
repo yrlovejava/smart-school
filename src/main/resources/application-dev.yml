@@ -6,3 +6,8 @@ school:
     database: smart-school
     username: root
     password: YuanRui20050614
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    database: 10

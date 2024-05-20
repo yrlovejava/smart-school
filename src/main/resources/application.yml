@@ -18,6 +18,13 @@ spring:
     username: 14780339727@163.com
     # 注意密码是在开启smtp/pop3时自动生成的，必须保存
     password: EDZMXQBOCGNGVJAT
+  data:
+    redis:
+      host: ${school.redis.host}
+      port: ${school.redis.port}
+      password: ${school.redis.password}
+      database: ${school.redis.database}
+
 
 springdoc:
   swagger-ui:
