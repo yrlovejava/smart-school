@@ -47,7 +47,7 @@ public class SchoolApplication {
                         \t外部: \t{}://{}:{}{}
                         \t配置文件: \t{}
                         ----------------------------------------------------------""",
-				env.getProperty("智慧校园系统"),
+				env.getProperty("spring.application.name"),
 				protocol,
 				serverPort,
 				contextPath,

@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: 智慧校园系统
   profiles:
     active: dev
   main:
