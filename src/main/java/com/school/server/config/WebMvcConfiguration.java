@@ -5,6 +5,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import lombok.extern.slf4j.Slf4j;
+import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,25 +34,13 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .excludePathPatterns("/user/login");//放行登录请求
     }
 
-    /**
-     * 通过knife4j生成接口文档
-     * @return
-     *//*
     @Bean
-    public Docket docket() {
-        ApiInfo apiInfo = new ApiInfoBuilder()
-                .title("智慧校园项目接口文档")
-                .version("2.0")
-                .description("智慧校园项目接口文档")
+    public GroupedOpenApi webApi() {      // 创建了一个api接口的分组
+        return GroupedOpenApi.builder()
+                .group("web-api")         // 分组名称
+                .packagesToScan("com.school.server.controller.web")  // controller分组
                 .build();
-        Docket docket = new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.school.server.controller"))
-                .paths(PathSelectors.any())
-                .build();
-        return docket;
-    }*/
+    }
 
     @Bean
     public OpenAPI springShopOpenAPI(){
