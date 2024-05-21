@@ -1,4 +1,4 @@
-package com.school.server.controller;
+package com.school.server.controller.web;
 
 import com.school.settings.Constant.EmailConstant;
 import com.school.settings.Constant.RedisConstant;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Random;
 
 @RestController
-@RequestMapping("/common")
+@RequestMapping("/web/common")
 @Tag(name = "通用接口")
 @Slf4j
 public class CommonController {
@@ -40,7 +40,7 @@ public class CommonController {
         //封装消息格式和内容
         SimpleMailMessage message = new SimpleMailMessage();
         message.setSubject(EmailConstant.EMAIL_FROM);
-        message.setText(code + EmailConstant.EMAIL_USEFUL_TIME_RECOMMEND);
+        message.setText(EmailConstant.EMAIL_CODE_TITLE + " " + code + " " + EmailConstant.EMAIL_USEFUL_TIME_RECOMMEND);
         message.setFrom(EmailConstant.EMAIL_FROM);
         message.setTo(email);
         //发送邮件

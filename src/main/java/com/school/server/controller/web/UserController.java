@@ -1,4 +1,4 @@
-package com.school.server.controller;
+package com.school.server.controller.web;
 
 import com.school.pojo.dto.UserLoginDTO;
 import com.school.pojo.dto.UserRegisterDTO;
@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/web/user")
 @Tag(name = "用户相关接口")
 @Slf4j
 public class UserController {
