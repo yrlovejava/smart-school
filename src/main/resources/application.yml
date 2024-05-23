@@ -10,7 +10,7 @@ spring:
     allow-circular-references: true # 支持循环依赖
   datasource:
     driver-class-name: ${school.datasource.driver-class-name}
-    url: jdbc:mysql://${school.datasource.host}:${school.datasource.port}/${school.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:postgresql://${school.datasource.host}:${school.datasource.port}/${school.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
     username: ${school.datasource.username}
     password: ${school.datasource.password}
   mail:

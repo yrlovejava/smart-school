@@ -15,7 +15,7 @@ public interface UserMapper {
      * @param email
      * @return
      */
-    @Select("select * from user where email = #{eamil}")
+    @Select("select * from public.user where email = #{eamil}")
     User selectUserByEmail(String email);
 
     /**
@@ -24,7 +24,7 @@ public interface UserMapper {
      * @return
      */
     @AutoFill(OperationType.INSERT)
-    @Insert("insert into user " +
+    @Insert("insert into public.user " +
             "(id, username, email, password, status, role, create_time, create_user, update_time, update_user) values " +
             "(#{id},#{username},#{email},#{password},#{status},#{role},#{createTime},#{createUser},#{updateTime},#{updateUser})")
     Integer insertUser(User user);

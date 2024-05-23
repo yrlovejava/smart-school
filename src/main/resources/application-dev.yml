@@ -1,11 +1,11 @@
 school:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
     host: localhost
-    port: 3306
+    port: 5432
     database: smart-school
-    username: root
-    password: YuanRui20050614
+    username: postgres
+    password: 123456
   redis:
     host: 127.0.0.1
     port: 6379
